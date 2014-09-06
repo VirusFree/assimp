@@ -331,7 +331,7 @@ public:
     fbx_simple_property(DrawVolumetricLight, bool, true)
     fbx_simple_property(DrawGroundProjection, bool, true)
     fbx_simple_property(DrawFrontFacingVolumetricLight, bool, false)
-    fbx_simple_property(Intensity, float, 1.0f)
+    fbx_simple_property(Intensity, float, 100.0f)
     fbx_simple_property(InnerAngle, float, 0.0f)
     fbx_simple_property(OuterAngle, float, 45.0f)
     fbx_simple_property(Fog, int, 50)
