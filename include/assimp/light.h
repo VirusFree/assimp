@@ -135,6 +135,12 @@ struct aiLight
      */
     C_STRUCT aiVector3D mDirection;
 
+	/** Light shadow casting
+	*
+	*  If value is 0 then shadow casting is disabled, else the light should cast shadows.
+	*/
+	int mCastShadows;
+
     /** Constant light attenuation factor.
      *
      *  The intensity of the light source at a given distance 'd' from

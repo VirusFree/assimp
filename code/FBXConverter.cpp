@@ -321,6 +321,8 @@ private:
 
         out_light->mColorSpecular = out_light->mColorDiffuse;
 
+        out_light->mCastShadows = light.CastShadows() ? 1 : 0;
+
         switch(light.LightType())
         {
         case Light::Type_Point:
