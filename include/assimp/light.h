@@ -141,6 +141,12 @@ struct aiLight
 	*/
 	int mCastShadows;
 
+    /** light rage.
+     *
+     *  The range of light, beyond that distance light has zero intensity.
+     */
+    float mRange;
+
     /** Constant light attenuation factor.
      *
      *  The intensity of the light source at a given distance 'd' from

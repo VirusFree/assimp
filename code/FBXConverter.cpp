@@ -323,6 +323,8 @@ private:
 
         out_light->mCastShadows = light.CastShadows() ? 1 : 0;
 
+        out_light->mRange = light.FarAttenuationEnd();
+
         switch(light.LightType())
         {
         case Light::Type_Point:
