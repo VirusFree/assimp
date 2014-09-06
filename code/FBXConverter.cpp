@@ -316,9 +316,8 @@ private:
         const aiVector3D& col = light.Color();
 
         out_light->mColorDiffuse = aiColor3D(col.x,col.y,col.z);
-        out_light->mColorDiffuse.r *= intensity;
-        out_light->mColorDiffuse.g *= intensity;
-        out_light->mColorDiffuse.b *= intensity;
+
+        out_light->mIntensity = intensity;
 
         out_light->mColorSpecular = out_light->mColorDiffuse;
 

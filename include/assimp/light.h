@@ -171,6 +171,14 @@ struct aiLight
      */
     float mAttenuationQuadratic;
 
+	/** Intensity of the light source
+	*
+	*  The intensity is multiplied with the
+	*  material colors to obtain the final color that contributes
+	*  to the shading term.
+	*/
+	float mIntensity;
+
     /** Diffuse color of the light source
      *
      *  The diffuse light color is multiplied with the diffuse
@@ -178,7 +186,7 @@ struct aiLight
      *  to the diffuse shading term.
      */
     C_STRUCT aiColor3D mColorDiffuse;
-
+	
     /** Specular color of the light source
      *
      *  The specular light color is multiplied with the specular
