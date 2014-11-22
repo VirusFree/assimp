@@ -887,6 +887,12 @@ extern "C" {
 #define AI_MATKEY_GLOBAL_BACKGROUND_IMAGE "?bg.global",0,0
 
 // ---------------------------------------------------------------------------
+
+//Meta Properties base key
+//actual property name must be append (eg. keyname = AI_MATKEY_METAPROPERTY + "MyProperty"; )
+#define AI_MATKEY_METAPROPERTY			"$meta."
+
+// ---------------------------------------------------------------------------
 // Pure key names for all texture-related properties
 //! @cond MATS_DOC_FULL
 #define _AI_MATKEY_TEXTURE_BASE         "$tex.file"

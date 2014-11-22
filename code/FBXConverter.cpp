@@ -1442,6 +1442,9 @@ private:
             out_mat->AddProperty(&str,AI_MATKEY_NAME);
         }
 
+        // setup material unparsed properties
+        SetupMaterialMetaProperties(out_mat, props);
+
         // shading stuff and colors
         SetShadingPropertiesCommon(out_mat,props);
 
@@ -1800,6 +1803,31 @@ private:
         }
     }
 
+	// ------------------------------------------------------------------------------------------------
+	void SetupMaterialMetaProperties(aiMaterial* out_mat, const PropertyTable& props)
+	{
+		DirectPropertyMap unparsedProperties = props.GetUnparsedProperties();
+		
+		// add unparsed properties to the material's properties
+		BOOST_FOREACH(const DirectPropertyMap::value_type& prop, unparsedProperties) 
+		{
+			// Interpret the property as a concrete type
+			if (const TypedProperty<bool>* interpreted = prop.second->As<TypedProperty<bool> >())
+				out_mat->AddProperty(&interpreted->Value(), 1, (AI_MATKEY_METAPROPERTY + prop.first).c_str());
+			else if (const TypedProperty<int>* interpreted = prop.second->As<TypedProperty<int> >())
+				out_mat->AddProperty(&interpreted->Value(), 1, (AI_MATKEY_METAPROPERTY + prop.first).c_str());
+			else if (const TypedProperty<uint64_t>* interpreted = prop.second->As<TypedProperty<uint64_t> >())
+				out_mat->AddProperty(&interpreted->Value(), 1, (AI_MATKEY_METAPROPERTY + prop.first).c_str());
+			else if (const TypedProperty<float>* interpreted = prop.second->As<TypedProperty<float> >())
+				out_mat->AddProperty(&interpreted->Value(), 1, (AI_MATKEY_METAPROPERTY + prop.first).c_str());
+			else if (const TypedProperty<std::string>* interpreted = prop.second->As<TypedProperty<std::string> >())
+				out_mat->AddProperty(&interpreted->Value(), 1, (AI_MATKEY_METAPROPERTY + prop.first).c_str());
+			else if (const TypedProperty<aiVector3D>* interpreted = prop.second->As<TypedProperty<aiVector3D> >())
+				out_mat->AddProperty(&interpreted->Value(), 1, (AI_MATKEY_METAPROPERTY + prop.first).c_str());
+			else
+				assert(false);
+		}
+	}
 
     // ------------------------------------------------------------------------------------------------
     // get the number of fps for a FrameRate enumerated value
