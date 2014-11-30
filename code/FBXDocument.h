@@ -346,7 +346,7 @@ public:
     fbx_simple_property(FarAttenuationStart, float, 0.0f)
     fbx_simple_property(FarAttenuationEnd, float, 0.0f)
 
-    fbx_simple_property(CastShadows, bool, true)
+    fbx_simple_property(CastShadows, bool, false)
     fbx_simple_property(ShadowColor, aiVector3D, aiVector3D(0,0,0))
 
     fbx_simple_property(AreaLightShape, int, 0)
